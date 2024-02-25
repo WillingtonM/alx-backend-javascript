@@ -18,16 +18,11 @@ export default class HolbertonClass {
 
     this._size = size;
     this._location = location;
-  }
+  } 
 
   /* getter size */
   get size() {
     return this._size;
-  }
-
-  /* Setter size */
-  set size(sizeValue) {
-    this._size = sizeValue;
   }
 
   /* getter location */
@@ -35,18 +30,27 @@ export default class HolbertonClass {
     return this._location;
   }
 
-  /* Setter location */
-  set location(locValue) {
-    this._location = locValue;
+  /* Setter size */
+  set size(sizeVal) {
+    if (!validateType(sizeVal, 'number')) {
+      throw new TypeError('size should  be a number');
+    }
+    this._size = sizeVal;
   }
 
-  [Symbol.toPrimitive](hint) {
-    if (hint === 'number') {
-      return this.size;
+  /* Setter location */
+  set location(newLoc) {
+    if (!validateType(newLoc, 'string')) {
+      throw new TypeError('location should be a string');
     }
-    if (hint === 'string') {
-      return this.location;
-    }
-    return this;
+    this._location = newLoc;
+  }
+
+  valueOf() {
+    return this._size;
+  }
+
+  toString() {
+    return this._location;
   }
 }
