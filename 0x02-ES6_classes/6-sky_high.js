@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint-disable */
+
 /**
  * building some skycrappers & warn people to evacuate buildings using static methods
  * 

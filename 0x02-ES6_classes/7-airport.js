@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Airport
+ * Airport class
  * 
 */
 

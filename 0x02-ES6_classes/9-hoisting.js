@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * HolbertonClass
+ * HolbertonClass class
  * 
 */
 
