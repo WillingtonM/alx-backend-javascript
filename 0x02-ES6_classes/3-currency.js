@@ -2,6 +2,10 @@
 
 /* eslint-disable no-underscore-dangle */
 
+/**
+ * Represents Currency class.
+ */
+
 export default class Currency {
   constructor(code, name) {
     if (typeof code !== 'string') {
@@ -25,7 +29,6 @@ export default class Currency {
       throw new TypeError('Code must be a string');
     }
     this._code = code;
-
   }
 
   /* Getter name */

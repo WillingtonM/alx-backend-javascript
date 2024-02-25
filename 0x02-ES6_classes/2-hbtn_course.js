@@ -1,6 +1,11 @@
+#!/usr/bin/env node
+
+/* eslint-disable */
+
 /**
  * Represents Holberton Course.
  */
+
 export default class HolbertonCourse {
   /**
    * Creates a new {@link HolbertonCourse}.
