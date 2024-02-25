@@ -7,6 +7,9 @@
  * 
 */
 
+function validateType(variable, type) {
+  return (typeof variable === type);
+}
 export default class HolbertonClass {
   constructor(size, location) {
     if (!validateType(size, 'number')) {
@@ -18,18 +21,20 @@ export default class HolbertonClass {
 
     this._size = size;
     this._location = location;
-  } 
+  }
 
-  /* getter size */
+  
+  
+  /* Getter size */
   get size() {
     return this._size;
   }
-
-  /* getter location */
+  
+  /* Getter location */
   get location() {
     return this._location;
   }
-
+  
   /* Setter size */
   set size(sizeVal) {
     if (!validateType(sizeVal, 'number')) {
@@ -37,7 +42,7 @@ export default class HolbertonClass {
     }
     this._size = sizeVal;
   }
-
+  
   /* Setter location */
   set location(newLoc) {
     if (!validateType(newLoc, 'string')) {
