@@ -1,13 +1,10 @@
 #!/usr/bin/env node
-
-/* Ad-hoc script foor practicing nodejs */
-
 const fs = require('fs');
 
 function countStudents(path) {
   try {
     const lines = fs.readFileSync(path, { encoding: 'utf8' }).split(/\r?\n/);
-    const c = 0;
+    let c = 0;
     let learnerCount = 0;
     const fields = {};
 
