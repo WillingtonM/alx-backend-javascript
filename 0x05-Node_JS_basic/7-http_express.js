@@ -8,7 +8,6 @@ const express = require('express');
 const { readFile } = require('fs');
 const app = express();
 
-const hostname = '127.0.0.1';
 const port = 1245;
 
 function learnersCount(nameOfFile) {
