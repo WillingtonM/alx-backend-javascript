@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 const fs = require('fs');
 
-/**
- * Counts the students in a CSV data file.
- * @param {String} path The path to the CSV data file.
- */
+/* Ad-hoc script foor practicing nodejs */
+
 function countStudents(path) {
   try {
     let c = 0;
