@@ -3,18 +3,16 @@
 /* eslint-disable no-param-reassign */
 
 const express = require('express');
-const app = express();
 
-const HOST = '127.0.0.1';
+const app = express();
 const PORT = 1245;
 
-app.get('/', (expReq, expResp) => {
-  expResp.statusCode = 200;
-  expResp.setHeader('Content-Type', 'text/plain');
-  expResp.setHeader('X-Served-By', 'itsfoss');
-  expResp.send('Hello Holberton School!');
+app.get('/', (_, appres) => {
+  appres.send('Hello Holberton School!');
 });
 
-app.listen(PORT, HOST, () => {});
+app.listen(PORT, () => {
+  console.log(`Server currently listening on PORT ${PORT}`);
+});
 
 module.exports = app;
