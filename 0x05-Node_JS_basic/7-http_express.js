@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 
 const express = require('express');
-const { readFile } = require('fs');
+const fs = require('fs');
 const app = express();
 
 const port = 1245;
@@ -11,15 +11,15 @@ const port = 1245;
 function learnersCount(nameOfFile) {
   const learners = {};
   const fields = {};
-  let len = 0;
+  const len = 0;
   return new Promise((resolve, reject) => {
-    readFile(nameOfFile, (err, data) => {
+    fs.readFile(nameOfFile, (err, data) => {
       if (err) {
         reject(err);
       } else {
-        let dataOutput = '';
+        const dataOutput = '';
         const dataLines = data.toString().split('\n');
-        for (let dl = 0; dl < dataLines.length; dl += 1) {
+        for (const dl = 0; dl < dataLines.length; dl += 1) {
           if (dataLines[dl]) {
             len += 1;
             const field = dataLines[dl].toString().split(',');
