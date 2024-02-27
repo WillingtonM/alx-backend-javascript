@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-
-/* Ad-hoc script foor practicing nodejs */
-
 const fs = require('fs');
 
 /**
@@ -10,9 +7,9 @@ const fs = require('fs');
  */
 function countStudents(path) {
   try {
-    const lines = fs.readFileSync(path, { encoding: 'utf8' }).split(/\r?\n/);
     let c = 0;
     let learnerCount = 0;
+    const lines = fs.readFileSync(path, { encoding: 'utf8' }).split(/\r?\n/);
     const fields = {};
 
     for (const l of lines) {
@@ -40,6 +37,7 @@ function countStudents(path) {
     for (const field of Object.keys(fields)) {
       const n = fields[field].count;
       const names = fields[field].students.join(', ');
+
       console.log(`Number of students in ${field}: ${n}. List: ${names}`);
     }
   } catch (error) {
