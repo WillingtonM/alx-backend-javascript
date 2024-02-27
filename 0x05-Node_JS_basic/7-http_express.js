@@ -1,9 +1,3 @@
-#!/usr/bin/env node
-
-/* eslint-disable no-unused-vars */
-
-/*  */
-
 const express = require('express');
 const { readFile } = require('fs');
 const app = express();
@@ -21,10 +15,10 @@ function learnersCount(nameOfFile) {
       } else {
         let dataOutput = '';
         const dataLines = data.toString().split('\n');
-        for (let i = 0; i < dataLines.length; i += 1) {
-          if (dataLines[i]) {
+        for (let dl = 0; dl < dataLines.length; dl += 1) {
+          if (dataLines[dl]) {
             len += 1;
-            const field = dataLines[i].toString().split(',');
+            const field = dataLines[dl].toString().split(',');
             if (Object.prototype.hasOwnProperty.call(learners, field[3])) {
               learners[field[3]].push(field[0]);
             } else {
