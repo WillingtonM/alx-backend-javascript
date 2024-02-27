@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+/* eslint-disable no-unused-vars */
+
 const express = require('express');
 const { readFile } = require('fs');
 const app = express();
@@ -45,9 +49,12 @@ function learnersCount(nameOfFile) {
   });
 }
 
-app.get('/', (request, appResp) => {
-  appResp.send('Hello Holberton School!');
+app.get('/', (req, appresp) => {
+  appresp.statusCode = 200;
+  appresp.setHeader('Content-Type', 'text/plain');
+  appresp.send('Hello Holberton School!');
 });
+
 app.get('/students', (request, appResp) => {
   learnersCount(process.argv[2].toString()).then((output) => {
     appResp.send(['This is the list of our students', output].join('\n'));
