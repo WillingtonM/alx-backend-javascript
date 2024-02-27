@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-/* Ad-hoc script foor practicing nodejs */
-
 const fs = require('fs');
 
 module.exports = function countLearners(path) {
