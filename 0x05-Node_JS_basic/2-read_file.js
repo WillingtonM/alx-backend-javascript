@@ -1,6 +1,13 @@
 #!/usr/bin/env node
+
+/* Ad-hoc script foor practicing nodejs */
+
 const fs = require('fs');
 
+/**
+ * Counts the students in a CSV data file.
+ * @param {String} path The path to the CSV data file.
+ */
 function countStudents(path) {
   try {
     const lines = fs.readFileSync(path, { encoding: 'utf8' }).split(/\r?\n/);
