@@ -1,29 +1,26 @@
 const http = require('http');
-const countStudents = require('./3-read_file_async');
-
+const students = require('./3-read_file_async');
+const host = '127.0.0.1';
 const port = 1245;
-const hostname = '127.0.0.1';
 
-const app = http.createServer(async (appreq, appresp) => {
-  appresp.statusCode = 200;
+const app = http.createServer((appreq, appres) => {
+  appres.statusCode = 200;
+  appres.setHeader('Content-Type', 'text/plain');
   if (appreq.url === '/') {
-    appresp.end('Hello Holberton School!');
+    appres.end('Hello Holberton School!');
   } else if (appreq.url === '/students') {
-    let dbList = 'This is the list of our students\n';
-    await countStudents(process.argv[2])
-      .then((lsMsg) => {
-        dbList += lsMsg;
-        appresp.end(dbList);
-      })
-      .catch((err) => {
-        dbList += err.message;
-        appresp.end(dbList);
-      });
+    appres.write('This is the list of our students\n');
+    students(process.argv[2]).then((data) => {
+      appres.write(`Number of students: ${data.students.length}\n`);
+      appres.write(`Number of students in CS: ${data.csStudents.length}. List: ${data.csStudents.join(', ')}\n`);
+      appres.write(`Number of students in SWE: ${data.sweStudents.length}. List: ${data.sweStudents.join(', ')}`);
+      appres.end();
+    }).catch((err) => appres.end(err.message));
   }
 });
-
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}`);
+  
+app.listen(port, host, () => {
+  console.log(`Server running at http://${host}:${port}`);
 });
 
 module.exports = app;
