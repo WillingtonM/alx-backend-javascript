@@ -11,15 +11,15 @@ const port = 1245;
 function learnersCount(nameOfFile) {
   const learners = {};
   const fields = {};
-  const len = 0;
+  let len = 0;
   return new Promise((resolve, reject) => {
     fs.readFile(nameOfFile, (err, data) => {
       if (err) {
         reject(err);
       } else {
-        const dataOutput = '';
+        let dataOutput = '';
         const dataLines = data.toString().split('\n');
-        for (const dl = 0; dl < dataLines.length; dl += 1) {
+        for (let dl = 0; dl < dataLines.length; dl += 1) {
           if (dataLines[dl]) {
             len += 1;
             const field = dataLines[dl].toString().split(',');
@@ -35,8 +35,9 @@ function learnersCount(nameOfFile) {
             }
           }
         }
-        const l = len - 1;
-        dataOutput += `Number of students: ${l}\n`;
+
+        const ls = len - 1;
+        dataOutput += `Number of students: ${ls}\n`;
         for (const [k, val] of Object.entries(fields)) {
           if (k !== 'field') {
             dataOutput += `Number of students in ${k}: ${val}. `;
