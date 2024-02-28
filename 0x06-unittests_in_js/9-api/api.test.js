@@ -8,13 +8,13 @@ describe("Index page", function() {
 	url: `${API_URL}/`,
 	method: "GET"
     }
-    it("Checks status code", function(done) {
+    it("check correct status code", function(done) {
 	request(options, function(er, resp, body) {
 	    expect(resp.statusCode).to.equal(200);
 	    done();
 	});
     });
-    it("Checks content", function(done) {
+    it("check correct content", function(done) {
 	request(options, function(er, resp, body) {
 	    expect(body).to.equal("Welcome to the payment system");
 	    done();
@@ -23,19 +23,19 @@ describe("Index page", function() {
 });
 
 describe("Cart page", function() {
-    it("Checks status code for url", function(done) {
+    it("check correct status code for correct url", function(done) {
 	request.get(`${API_URL}/cart/12`, function(er, resp, body) {
 	    expect(resp.statusCode).to.equal(200);
 	    done();
 	});
     });
-    it("Checks content for url", function(done) {
+    it("check correct content for correct url", function(done) {
 		request.get(`${API_URL}/cart/12`, function(er, resp, body) {
 			expect(body).to.contain("Payment methods for cart 12");
 			done();
 		});
     });
-    it("Checks status code for inurl", function(done) {
+    it("check correct status code for incorrect url", function(done) {
 		request.get(`${API_URL}/cart/kim`, function(er, resp, body) {
 			expect(resp.statusCode).to.equal(404);
 			done();
