@@ -2,8 +2,9 @@ const request = require("request");
 const {describe, it} = require("mocha");
 const expect = require("chai").expect;
 
+const API_URL = '${API_URL}';
+
 describe("Index page", function() {
-	const API_URL = '${API_URL}';
     const optns = {
 		url: `${API_URL}/`,
 		method: "GET"
