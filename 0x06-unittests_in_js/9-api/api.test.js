@@ -2,8 +2,9 @@ const request = require("request");
 const {describe, it} = require("mocha");
 const expect = require("chai").expect;
 
+const API_URL = 'http://localhost:7865';
+
 describe("Index page", function() {
-	const API_URL = 'http://localhost:7865';
     const options = {
 	url: `${API_URL}/`,
 	method: "GET"
