@@ -9,13 +9,13 @@ describe("Index page", function() {
 		url: `${API_URL}/`,
 		method: "GET"
     }
-    it("check status code", function(done) {
+    it("check correct status code", function(done) {
 		request(optns, function(er, resp, body) {
 			expect(resp.statusCode).to.equal(200);
 			done();
 		});
     });
-    it("check content", function(done) {
+    it("check correct content", function(done) {
 		request(optns, function(er, resp, body) {
 			expect(body).to.equal("Welcome to the payment system");
 			done();
@@ -24,19 +24,19 @@ describe("Index page", function() {
 });
 
 describe("Cart page", function() {
-    it("check status code for url", function(done) {
+    it("check correct status code for correct url", function(done) {
 		request.get(`${API_URL}/cart/12`, function(er, resp, body) {
 			expect(resp.statusCode).to.equal(200);
 			done();
 		});
     });
-    it("check content for url", function(done) {
+    it("check correct content for correct url", function(done) {
 		request.get(`${API_URL}/cart/12`, function(er, resp, body) {
 			expect(body).to.equal("Payment methods for cart 12");
 			done();
 		});
     });
-    it("check status code for inurl", function(done) {
+    it("check correct status code for incorrect url", function(done) {
 		request.get(`${API_URL}/cart/kim`, function(er, resp, body) {
 			expect(resp.statusCode).to.equal(404);
 			done();
@@ -45,7 +45,7 @@ describe("Cart page", function() {
 });
 
 describe("Available_payments page", function() {
-    it("check status for url", function() {
+    it("check correct status for correct url", function() {
 		request.get(`${API_URL}/available_payments`, (er, resp, body) => {
 			if (er) {
 				expect(resp.statusCode).to.not.equal(200);
@@ -55,7 +55,7 @@ describe("Available_payments page", function() {
 		});
     });
 
-    it("check body content for url", function() {
+    it("check correct body content for correct url", function() {
 		const optn = {json: true};
 		const payLoad = {
 			payment_methods: {
@@ -74,7 +74,7 @@ describe("Available_payments page", function() {
 });
 
 describe("Login", function() {
-    it("check status code for request that's sent properly", function(done) {
+    it("check correct status code for request that's sent properly", function(done) {
 		const optn = {
 			url: `${API_URL}/login`,
 			json: true,
@@ -85,7 +85,7 @@ describe("Login", function() {
 			done();
 		});
     });
-    it("check content for request that's sent properly", function(done) {
+    it("check correct content for request that's sent properly", function(done) {
 		const opts = {
 			url: `${API_URL}/login`,
 			json: true,
@@ -100,7 +100,7 @@ describe("Login", function() {
 			done();
 		});
     });
-    it("check status code for request that's not sent properly", function(done) {
+    it("check correct status code for request that's not sent properly", function(done) {
 		const optn = {
 			url: `${API_URL}/login`,
 			json: true,
