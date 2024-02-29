@@ -161,7 +161,7 @@ describe('Integration Testing', () => {
 
       request(optns, function (er, resp, body) {
         expect(resp.statusCode).to.equal(200);
-        const bodyParsed = JSON.parse(body);
+        const bdyparsd = JSON.parse(body);
 
         const referenceBody = {
           payment_methods: {
@@ -170,7 +170,7 @@ describe('Integration Testing', () => {
           },
         };
 
-        expect(bodyParsed).to.deep.equal(referenceBody);
+        expect(bdyparsd).to.deep.equal(referenceBody);
         done();
       });
     });
