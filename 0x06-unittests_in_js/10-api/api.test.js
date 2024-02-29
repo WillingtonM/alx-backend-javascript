@@ -86,9 +86,9 @@ describe("Available_payments page", function() {
     it("check correct status for correct url", function() {
 		request.get(`${API_URL}/available_payments`, (er, resp, body) => {
 			if (er) {
-			expect(resp.statusCode).to.not.equal(200);
+				expect(resp.statusCode).to.not.equal(200);
 			} else {
-			expect(resp.statusCode).to.equal(200);
+				expect(resp.statusCode).to.equal(200);
 			}
 		});
     });

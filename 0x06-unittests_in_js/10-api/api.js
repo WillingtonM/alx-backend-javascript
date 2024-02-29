@@ -16,10 +16,10 @@ app.get('/cart/:id([0-9]+)', (rqst, resp) => {
 app.get('/available_payments', (rqst, resp) => {
     resp.set("Content-Type", "application/json");
     const payMethods = {
-        payment_methods: {
-            credit_cards: true,
-            paypal: false
-        }
+	payment_methods: {
+          credit_cards: true,
+          paypal: false
+	}
     }
     resp.send(payMethods);
 });
@@ -27,13 +27,13 @@ app.get('/available_payments', (rqst, resp) => {
 app.post('/login', (rqst, resp) => {
     const usrName = rqst.body.userName;
     if (usrName) {
-        resp.send(`Welcome ${usrName}`);
+	resp.send(`Welcome ${usrName}`);
     } else {
-        resp.status(404).send();
+	resp.status(404).send();
     }
 });
 
-app.listen(port, () => {
+app.listen(port, function() {
     console.log(`API available on localhost port ${port}`);
 });
 
